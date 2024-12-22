@@ -61,12 +61,13 @@ factor
     | decimal {% id %}
 
 decimal
-    -> integers "." integers {% ([whole, _, decimal]) => parseFloat(whole + "." + decimal) %}
-    | integers {% ([n]) => parseInt(n) %}
+    -> digits "." digits {% ([whole, _, decimal]) => parseFloat(whole + "." + decimal) %}
+    | digits {% ([n]) => parseInt(n) %}
 
-integers
-    -> digit integers {% ([d,ds]) => d + ds %}
+digits
+    -> digit digits {% ([d,ds]) => d + ds %}
     | digit {% id %}
 
 digit
     -> [0-9] {% id %}
+     

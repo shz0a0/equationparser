@@ -1,11 +1,13 @@
 const nearley = require("nearley");
-const grammar = require("./grammar.js");
+const grammar = require("./logic.js");
 
 // Create a Parser object from our grammar.
 const parser = new nearley.Parser(nearley.Grammar.fromCompiled(grammar));
 
 // Parse something!
-parser.feed("foo\n");
-
-// parser.results is an array of possible parsings.
-console.log(JSON.stringify(parser.results)); // [[[[["foo"],"\n"]]]]
+try {
+    parser.feed("3*(4+2)=(9/3)*(19-13)");
+    console.log(parser.results);
+} catch (e) {
+    console.log("Failed!", e.message);
+}

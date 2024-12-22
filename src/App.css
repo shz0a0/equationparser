@@ -25,17 +25,6 @@ body {
   padding: 2rem;
 }
 
-.App-footer {
-  margin-top: auto;
-  padding: 20px;
-  background-color: var(--bg-depth-1);
-  color: var(--text-secondary);
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  padding-bottom: 40px;  
-}
 
 .main-container {
   width: 100%;
@@ -111,10 +100,15 @@ body {
   margin: 2rem auto;
   padding: 1.5rem;
   border-radius: 8px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  max-width: 200px;
+  min-width: 300px;
+  max-width: 600px;
   animation: fadeIn 0.3s ease-out;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .result-box.true {
@@ -129,12 +123,6 @@ body {
   color: var(--error-color);
 }
 
-.error-message {
-  margin-top: 0.5rem;
-  color: var(--error-color);
-  font-size: 0.9rem;
-  font-weight: normal;
-}
 
 .examples-section {
   margin-top: 3rem;

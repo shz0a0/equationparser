@@ -51,10 +51,10 @@ var grammar = {
     {"name": "term_op", "symbols": [/[*/]/], "postprocess": id},
     {"name": "factor", "symbols": [{"literal":"("}, "arithmetic", {"literal":")"}], "postprocess": data => data[1]},
     {"name": "factor", "symbols": ["decimal"], "postprocess": id},
-    {"name": "decimal", "symbols": ["integers", {"literal":"."}, "integers"], "postprocess": ([whole, _, decimal]) => parseFloat(whole + "." + decimal)},
-    {"name": "decimal", "symbols": ["integers"], "postprocess": ([n]) => parseInt(n)},
-    {"name": "integers", "symbols": ["digit", "integers"], "postprocess": ([d,ds]) => d + ds},
-    {"name": "integers", "symbols": ["digit"], "postprocess": id},
+    {"name": "decimal", "symbols": ["digits", {"literal":"."}, "digits"], "postprocess": ([whole, _, decimal]) => parseFloat(whole + "." + decimal)},
+    {"name": "decimal", "symbols": ["digits"], "postprocess": ([n]) => parseInt(n)},
+    {"name": "digits", "symbols": ["digit", "digits"], "postprocess": ([d,ds]) => d + ds},
+    {"name": "digits", "symbols": ["digit"], "postprocess": id},
     {"name": "digit", "symbols": [/[0-9]/], "postprocess": id}
 ]
   , ParserStart: "expression"
